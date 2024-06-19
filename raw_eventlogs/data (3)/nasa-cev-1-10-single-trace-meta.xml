@@ -1,0 +1,146 @@
+<metadata>
+   <doi>doi:10.4121/uuid:60383406-ffcd-441f-aa5e-4ec763426b76</doi>
+   <name>nasa-cev-1-10-single-trace.xes.gz</name>
+   <description>XES software event log obtained through instrumenting the NASA CEV class using the tool available at https://svn.win.tue.nl/repos/prom/XPort/ . This event log contains method-call level events describing a single run of an exhaustive unit test suite for the Crew Exploration Vehicle (CEV) example available and documented at http://babelfish.arc.nasa.gov/trac/jpf/wiki/projects/jpf-statechart (trac) http://babelfish.arc.nasa.gov/hg/jpf/jpf-statechart (mecurial repository) . Note that the life-cycle information in this log corresponds to method call (start) and return (complete), and captures a method-call hierarchy. We attached a slightly preprocessed variant of this event log, where the execution of each unit test method is represented as a separate trace.</description>
+   <language>English</language>
+   <log_type>Real-life</log_type>
+   <process_type>Implicitly structured</process_type>
+   <creation>
+   <insitute>Eindhoven University of Technology</insitute>
+   <person>Maikel Leemans</person>
+   <place>Eindhoven University of Technology</place>
+   <time>Fri Feb 10 00:00:00 CET 2017</time>
+   </creation>
+   <source>
+   <insitute>Eindhoven University of Technology</insitute>
+   <institute_type>University</institute_type>
+   <model>http://babelfish.arc.nasa.gov/hg/jpf/jpf-statechart</model>
+   <program>NASA CEV</program>
+   </source>
+   <rights type="Public">
+   </rights>
+   <number_of_traces>1</number_of_traces>
+   <number_of_events>54</number_of_events>
+   <events_per_trace>54.0</events_per_trace>
+   <min_events_per_trace>54</min_events_per_trace>
+   <max_events_per_trace>54</max_events_per_trace>
+   <global_attributes>
+      <trace_level>
+      </trace_level>
+      <event_level>
+         <attribute key="appcomm:localhost" default="string"/>
+         <attribute key="appcomm:localport" default="string"/>
+         <attribute key="appcomm:remotehost" default="string"/>
+         <attribute key="appcomm:remoteport" default="string"/>
+         <attribute key="apploc:app" default="string"/>
+         <attribute key="apploc:caller:filename" default="string"/>
+         <attribute key="apploc:caller:idhashcode" default="string"/>
+         <attribute key="apploc:caller:joinpoint" default="string"/>
+         <attribute key="apploc:caller:linenr" default="string"/>
+         <attribute key="apploc:etype" default="string"/>
+         <attribute key="apploc:filename" default="string"/>
+         <attribute key="apploc:idhashcode" default="string"/>
+         <attribute key="apploc:joinpoint" default="string"/>
+         <attribute key="apploc:linenr" default="string"/>
+         <attribute key="apploc:node" default="string"/>
+         <attribute key="apploc:regionstr" default="string"/>
+         <attribute key="apploc:tier" default="string"/>
+         <attribute key="apprun:excatchtype" default="string"/>
+         <attribute key="apprun:exthrowtype" default="string"/>
+         <attribute key="apprun:nanotime" default="string"/>
+         <attribute key="apprun:threadid" default="string"/>
+         <attribute key="concept:name" default="string"/>
+         <attribute key="lifecycle:transition" default="string"/>
+         <attribute key="org:resource" default="string"/>
+         <attribute key="time:timestamp" default="1970-01-01T01:00:00+01:00"/>
+      </event_level>
+   </global_attributes>
+   <meta_extensions>
+      <MetaData_Concept prefix="meta_concept" uri="http://www.xes-standard.org/meta_concept.xesext">
+         <different_names_average>20.0</different_names_average>
+         <different_names_max>20</different_names_max>
+         <different_names_min>20</different_names_min>
+         <different_names_standard_deviation>0.0</different_names_standard_deviation>
+         <different_names_total>20</different_names_total>
+         <named_events_average>54.0</named_events_average>
+         <named_events_max>54</named_events_max>
+         <named_events_min>54</named_events_min>
+         <named_events_standard_deviation>0.0</named_events_standard_deviation>
+         <named_events_total>54</named_events_total>
+      </MetaData_Concept>
+      <MetaData_General prefix="meta_general" uri="http://www.xes-standard.org/meta_general.xesext">
+         <classifiers>6</classifiers>
+         <events_average>54.0</events_average>
+         <events_max>54</events_max>
+         <events_min>54</events_min>
+         <events_standard_deviation>0.0</events_standard_deviation>
+         <events_total>54</events_total>
+         <traces_total>1</traces_total>
+      </MetaData_General>
+      <MetaData_LifeCycle prefix="meta_life" uri="http://www.xes-standard.org/meta_life.xesext">
+         <different_transitions_average>2.0</different_transitions_average>
+         <different_transitions_max>2</different_transitions_max>
+         <different_transitions_min>2</different_transitions_min>
+         <different_transitions_standard_deviation>0.0</different_transitions_standard_deviation>
+         <different_transitions_total>2</different_transitions_total>
+         <transition_events_average>54.0</transition_events_average>
+         <transition_events_max>54</transition_events_max>
+         <transition_events_min>54</transition_events_min>
+         <transition_events_standard_deviation>0.0</transition_events_standard_deviation>
+         <transition_events_total>54</transition_events_total>
+      </MetaData_LifeCycle>
+      <MetaData_Organization prefix="meta_org" uri="http://www.xes-standard.org/meta_org.xesext">
+         <different_groups_average>1.0</different_groups_average>
+         <different_groups_max>1</different_groups_max>
+         <different_groups_min>1</different_groups_min>
+         <different_groups_standard_deviation>0.0</different_groups_standard_deviation>
+         <different_groups_total>1</different_groups_total>
+         <different_resources_average>1.0</different_resources_average>
+         <different_resources_max>1</different_resources_max>
+         <different_resources_min>1</different_resources_min>
+         <different_resources_standard_deviation>0.0</different_resources_standard_deviation>
+         <different_resources_total>1</different_resources_total>
+         <different_roles_average>1.0</different_roles_average>
+         <different_roles_max>1</different_roles_max>
+         <different_roles_min>1</different_roles_min>
+         <different_roles_standard_deviation>0.0</different_roles_standard_deviation>
+         <different_roles_total>1</different_roles_total>
+         <group_events_average>54.0</group_events_average>
+         <group_events_max>54</group_events_max>
+         <group_events_min>54</group_events_min>
+         <group_events_standard_deviation>0.0</group_events_standard_deviation>
+         <group_events_total>54</group_events_total>
+         <resource_events_average>54.0</resource_events_average>
+         <resource_events_max>54</resource_events_max>
+         <resource_events_min>54</resource_events_min>
+         <resource_events_standard_deviation>0.0</resource_events_standard_deviation>
+         <resource_events_total>54</resource_events_total>
+         <role_events_average>54.0</role_events_average>
+         <role_events_max>54</role_events_max>
+         <role_events_min>54</role_events_min>
+         <role_events_standard_deviation>0.0</role_events_standard_deviation>
+         <role_events_total>54</role_events_total>
+      </MetaData_Organization>
+      <MetaData_Time prefix="meta_time" uri="http://www.xes-standard.org/meta_time.xesext">
+         <duration_average>5.205</duration_average>
+         <duration_max>5.205</duration_max>
+         <duration_min>5.205</duration_min>
+         <duration_standard_deviation>0.0</duration_standard_deviation>
+         <duration_total>5.205</duration_total>
+         <log_duration>5.205</log_duration>
+         <log_end_time>2017-02-10T13:55:00.628+01:00</log_end_time>
+         <log_start_time>2017-02-10T13:54:55.423+01:00</log_start_time>
+      </MetaData_Time>
+   </meta_extensions>
+   <extensions>
+      <Concept prefix="concept" uri="http://www.xes-standard.org/concept.xesext">
+         <name>nasa-cev-1-10-single-trace</name>
+      </Concept>
+      <Lifecycle prefix="lifecycle" uri="http://www.xes-standard.org/lifecycle.xesext">
+      </Lifecycle>
+      <Organizational prefix="org" uri="http://www.xes-standard.org/org.xesext">
+      </Organizational>
+      <Time prefix="time" uri="http://www.xes-standard.org/time.xesext">
+      </Time>
+   </extensions>
+</metadata>

@@ -1,0 +1,118 @@
+@startuml
+left to right direction
+
+package "ppm_benchmark" {
+    package Core {
+        class BenchmarkLoader {
+            +load_from_config(config_path: str)
+            +load_from_folder(folder: str)
+            -_load_config(config_path: str)
+            -_get_datasets(config: dict)
+            -_get_metrics(task: dict)
+            -_get_task_generator(task: dict)
+            -_get_tasks(config: dict)
+            -_init_tasks(tasks: list, datasets: list, config: dict)
+        }
+        class Experiment {
+            +new_experiment(name: str)
+            +load_experiment(save_path: str)
+            +init_run(task: Task, run_id: str, model_type: str)
+            +log_train_metrics(epoch: int, metrics: dict, run_id: str)
+            +set_hyperparams(run_id: str, hyperparams: dict)
+            +set_start_time(run_id: str)
+            +set_end_time(run_id: str)
+            +log_evaluation(run_id: str, metric: str, score: float)
+            +finish_run(run_id: str, task: Task)
+            +get_runs(): list
+            +get_run_by_id(run_id: str): Run
+            +save(save_folder: str)
+        }
+    }
+
+    package Models {
+        class BaseDatasetLoader {
+        +load_data()
+        }
+        class BaseDatasetNormalizer {
+        +normalize()
+        }
+        class BaseMetric {
+        +evaluate()
+        }
+        class BaseTaskGenerator {
+        +generate_task()
+        }
+        class Benchmark {
+            +get_tasks(): list
+            +load_task(task_name: str): Task
+            +evaluate(task: Task, predictions: list)
+        }
+        class Dataset {
+            +normalize(): dict
+        }
+        class Run {
+            +task: Task
+            +run_id: str
+        }
+        class Task {
+            +name: str
+            +metrics: list
+            +task_generator: BaseTaskGenerator
+            +save_folder: str
+            +category: str
+            +evaluate(predictions: list)
+            +generate_task(normalized_data: dict)
+        }
+    }
+
+    package DatasetLoaders {
+        class $dataset_loader
+        $dataset_loader--|> BaseDatasetLoader
+    }
+
+    package DatasetNormalizers {
+        class $dataset_normalizer
+        $dataset_normalizer --|> BaseDatasetNormalizer
+    }
+
+    package Metrics {
+        class $metric
+        $metric --|> BaseMetric
+    }
+
+    package TaskGenerators {
+        class $task_generator
+        $task_generator--|> BaseTaskGenerator
+    }
+
+    package Callbacks {
+    class TFCallback {
+        +__init__(experiment: Experiment, task: Task, run_id: str)
+        +on_epoch_end(epoch: int, logs: dict)
+        +on_train_end()
+        +evaluate(predictions: list)
+    }
+
+    class GenericCallback {
+        +__init__(experiment: Experiment, task: Task, run_id: str)
+        +set_hyperparams(hyperparams: dict)
+        +epoch_end(data: dict, suppress_warnings: bool)
+        +train_end()
+        +evaluate(predictions: list)
+    }
+}
+
+    BenchmarkLoader --> Benchmark
+    BenchmarkLoader --> Dataset
+    BenchmarkLoader --> Task
+    BenchmarkLoader --> BaseDatasetLoader
+    BenchmarkLoader --> BaseDatasetNormalizer
+    BenchmarkLoader --> BaseMetric
+    BenchmarkLoader --> BaseTaskGenerator
+}
+
+TFCallback --> Experiment
+TFCallback --> Task
+GenericCallback --> Experiment
+GenericCallback --> Task
+@enduml
