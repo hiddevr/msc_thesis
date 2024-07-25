@@ -1,0 +1,49 @@
+datasets:
+  - name: "bpi_2015_1"
+    dataset_normalizer: "BPI2015Normalizer"
+    dataset_loader: "LocalXes"
+    data_path: "../../raw_eventlogs/BPIC15_1.xes"
+    is_remote: false
+    data_owner: "Boudewijn van Dongen"
+    tasks:
+      - name: "bpi_2015_1_next_timestamp"
+    split_details:
+      start_date: "2010-10"
+      end_date: "2015-03"
+      max_days: 302.82
+  - name: "bpi_2015_2"
+    dataset_normalizer: "BPI2015Normalizer"
+    dataset_loader: "LocalXes"
+    data_path: "../../raw_eventlogs/BPIC15_2.xes"
+    is_remote: false
+    data_owner: "Boudewijn van Dongen"
+    tasks:
+      - name: "bpi_2015_2_next_timestamp"
+    split_details:
+      start_date: "2010-10"
+      end_date: "2015-03"
+      max_days: 302.82
+
+
+benchmark:
+    task_type: "next_attribute"
+    name: "Test Benchmark"
+    save_folder: "next_attribute_regression"
+    attr_col: "time:timestamp"
+    keywords_dict: null
+    evaluator: "NextAttributeRegression"
+
+    tasks:
+      - name: "bpi_2015_1_next_timestamp"
+        save_folder: "next_attribute_regression/bpi_2015_1_next_timestamp_task"
+        task_generator:
+          name: "NextAttributeRegression"
+      - name: "bpi_2015_2_next_timestamp"
+        save_folder: "next_attribute_regression/bpi_2015_2_next_timestamp_task"
+        task_generator:
+          name: "NextAttributeRegression"
+    metrics:
+      - name: "MAE"
+      - name: "RMSE"
+      - name: "MSE"
+      - name: "Correlation"

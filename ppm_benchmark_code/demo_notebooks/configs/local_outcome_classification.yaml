@@ -1,0 +1,50 @@
+datasets:
+  - name: "bpi_2017"
+    dataset_normalizer: "BPI2017Normalizer"
+    dataset_loader: "LocalXes"
+    data_path: "../../raw_eventlogs/BPI Challenge 2017.xes/BPI Challenge 2017.xes"
+    is_remote: false
+    data_owner: "Boudewijn van Dongen"
+    tasks:
+      - name: "bpi_2017_outcome_classification"
+    split_details:
+      start_date: null
+      end_date: "2017-01"
+      max_days: 47.81
+  - name: "bpi_2012"
+    dataset_normalizer: "BPI2012Normalizer"
+    dataset_loader: "LocalXes"
+    data_path: "../../raw_eventlogs/BPI_Challenge_2012.xes/BPI_Challenge_2012.xes"
+    is_remote: false
+    data_owner: "Boudewijn van Dongen"
+    tasks:
+      - name: "bpi_2012_outcome_classification"
+    split_details:
+      start_date: null
+      end_date: "2012-02"
+      max_days: 32.28
+
+benchmark:
+    task_type: "outcome"
+    attr_col: null
+    evaluator: "OutcomeClassification"
+    keywords_dict: {"approved": ["A_REGISTERED_COMPLETE", "A_APPROVED_COMPLETE", "O_ACCEPTED_COMPLETE", "A_ACTIVATED_COMPLETE", "O_Accepted"],
+                    "declined": ["A_DECLINED_COMPLETE", "O_DECLINED_COMPLETE", "O_Refused"],
+                    "canceled": ["A_CANCELLED_COMPLETE", "O_Cancelled"]}
+    name: "Test Classification"
+    save_folder: "outcome_classification"
+    tasks:
+      - name: "bpi_2012_outcome_classification"
+        save_folder: "outcome_classification/bpi_2012_outcome_classification_task"
+        task_generator:
+          name: "OutcomeClassification"
+      - name: "bpi_2017_outcome_classification"
+        save_folder: "outcome_classification/bpi_2017_outcome_classification_task"
+        task_generator:
+          name: "OutcomeClassification"
+    metrics:
+      - name: "Accuracy"
+      - name: "LASS"
+      - name: "Precision"
+      - name: "Recall"
+      - name: "F1Score"

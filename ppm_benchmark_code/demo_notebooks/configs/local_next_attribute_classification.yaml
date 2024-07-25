@@ -1,0 +1,50 @@
+datasets:
+  - name: "bpi_2015_1"
+    dataset_normalizer: "BPI2015Normalizer"
+    dataset_loader: "LocalXes"
+    data_path: "../../raw_eventlogs/BPIC15_1.xes"
+    is_remote: false
+    data_owner: "Boudewijn van Dongen"
+    tasks:
+      - name: "bpi_2015_1_next_event"
+    split_details:
+      start_date: "2010-10"
+      end_date: "2015-03"
+      max_days: 302.82
+  - name: "bpi_2015_2"
+    dataset_normalizer: "BPI2015Normalizer"
+    dataset_loader: "LocalXes"
+    data_path: "../../raw_eventlogs/BPIC15_2.xes"
+    is_remote: false
+    data_owner: "Boudewijn van Dongen"
+    tasks:
+      - name: "bpi_2015_2_next_event"
+    split_details:
+      start_date: "2010-10"
+      end_date: "2015-03"
+      max_days: 302.82
+
+
+benchmark:
+    task_type: "next_attribute"
+    name: "Test Benchmark"
+    save_folder: "next_attribute_classification"
+    attr_col: "concept:name"
+    keywords_dict: null
+    evaluator: "NextAttributeClassification"
+
+    tasks:
+      - name: "bpi_2015_1_next_event"
+        save_folder: "next_attribute_classification/bpi_2015_1_next_event_task"
+        task_generator:
+          name: "NextAttributeClassification"
+      - name: "bpi_2015_2_next_event"
+        save_folder: "next_attribute_classification/bpi_2015_2_next_event_task"
+        task_generator:
+          name: "NextAttributeClassification"
+    metrics:
+      - name: "Accuracy"
+      - name: "LASS"
+      - name: "Precision"
+      - name: "Recall"
+      - name: "F1Score"
